@@ -7,24 +7,79 @@
 </head>
 <body>
 <div layout:fragment="content">
-    <h2>Welcome to Homepage</h2>
-    <p sec:authorize="hasRole('ROLE_ANONYMOUS')">Text visible to anonymous.</p>
-    <p sec:authorize="hasRole('USER')">Text visible to user.</p>
-    <p sec:authorize="hasRole('ADMIN')">Text visible to admin.</p>
-    <p sec:authorize="isAuthenticated()">Text visible only to authenticated users.</p>
+    <main>
 
-    <div sec:authorize="hasRole('ROLE_ANONYMOUS')">
-        <p><a th:href="@{|/login|}" th:text="'Log in'"></a></p>
-        <p><a th:href="@{|/register|}" th:text="'Register'"></a></p>
-    </div>
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light">Software Inventory</h1>
+                    <p class="lead text-muted">
+                        Use software inventory to collect information about files on client devices. Software inventory can also collect files from client devices and store them on the site server. Software inventory is collected when you select the Enable software inventory on clients setting in client settings. You can also schedule the operation in client settings.
+                    </p>
+                    <p>
+                        <a href = "mailto:contact@example.com?subject = Feedback&body = Message" class="btn btn-primary my-2">Contact</a>
+                    </p>
+                </div>
+            </div>
+        </section>
 
-    <div sec:authorize="isAuthenticated()">
-        <p>Logged as: <span sec:authentication="name"></span></p>
-        <p>Has role: <span sec:authentication="authorities"></span></p>
-        <p sec:authorize="hasAuthority('USER')"><a th:href="@{|/dashboard|}" th:text="'User Dashboard'"></a></p>
-        <p sec:authorize="hasAuthority('ADMIN')"><a th:href="@{|/admin/dashboard|}" th:text="'Admin Dashboard'"></a></p>
-        <a th:href="@{/logout}">Log out</a>
-    </div>
+        <div class="album py-5 bg-light">
+            <div class="container">
+
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="https://i.picsum.photos/id/940/412/225.jpg?hmac=Yhz60P_Dutg2TNeolG3rm0VXQbkVflc0yRxBz8qxgNE" alt="">
+                            <div class="card-body">
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img th:src="@{/images/homeimg.jpg}" alt="">
+
+                            <div class="card-body">
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="https://i.picsum.photos/id/940/412/225.jpg?hmac=Yhz60P_Dutg2TNeolG3rm0VXQbkVflc0yRxBz8qxgNE" alt="">
+
+                            <div class="card-body">
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </main>
 </div>
 </body>
 </html>
