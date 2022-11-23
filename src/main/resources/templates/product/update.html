@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <form th:action="@{'/product/update/' + ${product.id}}" th:object="${product}" method="post">
+        <input type="text" placeholder="name" th:field="*{name}">
+        <textarea placeholder="description" th:field="*{description}"></textarea>
+        <input type="number" th:field="*{quantity}" placeholder="quantity">
+        <input type="number" th:field="*{price}" placeholder="price">
+        <select th:field="*{supplier}">
+            <th:block th:each="supplier: ${suppliers}">
+                <option th:text="${supplier.name}" th:value="${supplier.id}"></option>
+            </th:block>
+        </select>
+        <input type="submit" th:value="Save">
+    </form>
+</div>
+</body>
+</html>
