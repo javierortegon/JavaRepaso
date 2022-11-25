@@ -10,11 +10,11 @@
     <div class="col-md-6">
         <form th:action="@{/register}" th:object="${user}" method="post">
             <h3>Registration</h3>
-            <input class="form-control" type="text" th:field="*{firstName}" placeholder="First Name"/> <br/><br/>
-            <input class="form-control" type="text" th:field="*{lastName}" placeholder="Last Name"/> <br/><br/>
-            <input class="form-control" type="text" th:field="*{mobile}" placeholder="Mobile Number"/> <br/><br/>
-            <input class="form-control" type="text" th:field="*{email}" placeholder="Email"/> <br/><br/>
-            <input class="form-control" type="password" th:field="*{password}" placeholder="Password"/> <br/><br/>
+            <input required class="form-control" type="text" th:field="*{firstName}" placeholder="First Name"/> <br/><br/>
+            <input required class="form-control" type="text" th:field="*{lastName}" placeholder="Last Name"/> <br/><br/>
+            <input required class="form-control" type="text" th:field="*{mobile}" placeholder="Mobile Number"/> <br/><br/>
+            <input required class="form-control" type="text" th:field="*{email}" placeholder="Email"/> <br/><br/>
+            <input required class="form-control" type="password" th:field="*{password}" placeholder="Password"/> <br/><br/>
             <select class="form-control" th:field="*{role}" required>
                 <option value="">Select</option>
                 <option value="ADMIN">ADMIN</option>
@@ -24,8 +24,8 @@
             | <a th:href="@{|/login|}" th:text="'Log in'"></a>
             <span th:utext="${successMessage}"></span>
             <div th:if="${bindingResult!=null && bindingResult.getAllErrors()!=null}">
-                <ul th:each="data : ${bindingResult.getAllErrors()}">
-                    <li th:text="${data.getObjectName() + ' :: ' + data.getDefaultMessage()}"></li>
+                <ul class="listError" th:each="data : ${bindingResult.getAllErrors()}">
+                    <li class="alert alert-warning" th:text="${data.getObjectName() + ' :: ' + data.getDefaultMessage()}"></li>
                 </ul>
             </div>
         </form>

@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
             crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/stylecustom.css}">
     <th:block layout:fragment="addhead">
     </th:block>
 </head>
@@ -53,6 +54,9 @@
                         <li><a class="dropdown-item" th:href="@{/product/new}">Create</a></li>
                     </ul>
                 </li>
+                <li sec:authorize="isAuthenticated()" lass="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/logout}">Log out</a>
+                </li>
 
             </ul>
             <form class="d-flex" role="search">
@@ -78,7 +82,7 @@
 <footer class="container py-5">
     <div class="row">
         <div class="col-md-12">
-            <p class="text-muted">&copy; 2022 Business Name. All rights reserved.</p>
+            <p class="text-muted">&copy; 2022 Sena | <a href="https://github.com/javierortegon/JavaRepaso" target="_blank">GitHub</a>. All rights reserved.</p>
         </div>
     </div>
 </footer>
