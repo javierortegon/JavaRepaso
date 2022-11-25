@@ -2,9 +2,12 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Product;
 import com.example.demo.model.Supplier;
+import com.example.demo.model.User;
 import com.example.demo.service.ProductService;
 import com.example.demo.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +25,10 @@ public class ProductViewController {
 
     @GetMapping("/product/all")
     public String getProducts(Model model){
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User currentPrincipalName = (User) authentication.getPrincipal();
+
         model.addAttribute("products", productService.getProducts());
         return "product/all";
     }

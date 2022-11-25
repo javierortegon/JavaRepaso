@@ -8,7 +8,7 @@
 </head>
 <body>
 <div layout:fragment="content">
-    <table class="table table-bordered table-striped" id="supplierTable">
+    <table class="table table-striped" style="width:100%" id="supplierTable">
         <thead>
             <tr>
                 <td>Name</td>
@@ -40,14 +40,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $("#supplierTable").DataTable({
-                'aoColumnDefs': [{
-                    'bSortable': false,
-                    'aTargets': [-1] /* 1st one, start by the right */
-                }]
-            });
-        })
+        $(document).ready(function () {
+            $('#supplierTable').DataTable();
+        });
     </script>
 </div>
 </body>
